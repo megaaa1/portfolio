@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Projects — Mega Hotmauli Panjaitan</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --forest: #1C3A2E; --forest-mid: #274D3D; --forest-deep: #0D2219;
+  --sage: #7A9E87; --sage-light: #B8CFC1;
+  --cream: #F7F3ED; --cream-dark: #EDE8E0;
+  --gold: #C9A84C; --gold-light: #E8D08A;
+  --text-dark: #1A1A1A; --text-mid: #4A4A4A; --text-light: #7A7A7A;
+}
+html { scroll-behavior: smooth; }
+body { font-family: 'Inter', sans-serif; background: var(--cream); color: var(--text-dark); overflow-x: hidden; }
+
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 16px 6vw;
+  background: rgba(13,34,25,0.97); backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(201,168,76,0.18);
+}
+.nav-logo { display:flex; align-items:center; gap:9px; font-family:'Playfair Display',serif; font-size:1.05rem; font-weight:700; color:var(--gold); letter-spacing:0.03em; text-decoration:none; }
+.nav-logo svg { width:22px; height:22px; flex-shrink:0; }
+.nav-back { font-size:0.78rem; font-weight:500; letter-spacing:0.08em; text-transform:uppercase; color:var(--sage-light); text-decoration:none; transition:color 0.2s; display:flex; align-items:center; gap:7px; }
+.nav-back:hover { color:var(--gold); }
+
+/* PAGE HEADER */
+.page-header {
+  min-height: 38vh; display:flex; align-items:flex-end; padding:80px 6vw 56px;
+  background: linear-gradient(150deg,#0A1A12 0%,var(--forest) 55%,#152E22 100%);
+  position:relative; overflow:hidden;
+}
+.page-header::before { content:''; position:absolute; inset:0; opacity:0.03; background-image:linear-gradient(var(--gold) 1px,transparent 1px),linear-gradient(90deg,var(--gold) 1px,transparent 1px); background-size:60px 60px; }
+.page-header-inner { max-width:1100px; width:100%; margin:0 auto; position:relative; }
+.page-header .eyebrow { color:var(--gold); display:flex; align-items:center; gap:10px; font-size:0.68rem; font-weight:600; letter-spacing:0.22em; text-transform:uppercase; margin-bottom:14px; }
+.page-header .eyebrow::after { content:''; flex:0 0 28px; height:1px; background:var(--gold); opacity:0.45; }
+.page-header h1 { font-family:'Playfair Display',serif; font-size:clamp(2rem,4vw,3.6rem); font-weight:900; color:var(--cream); line-height:1.1; }
+.page-header h1 em { font-style:normal; color:var(--gold); }
+.page-header p { margin-top:14px; font-size:0.96rem; color:var(--sage-light); max-width:560px; line-height:1.75; font-weight:300; }
+
+/* CONTENT */
+.content-wrap { max-width:1100px; margin:0 auto; padding:72px 6vw 80px; }
+
+/* SECTION LABEL */
+.section-label { display:flex; align-items:center; gap:14px; margin-bottom:36px; margin-top:64px; }
+.section-label:first-child { margin-top:0; }
+.section-label h2 { font-family:'Playfair Display',serif; font-size:1.55rem; font-weight:700; color:var(--forest); }
+.section-label::after { content:''; flex:1; height:1px; background:rgba(28,58,46,0.12); }
+
+/* PROJECT CARDS */
+.proj-list { display:grid; grid-template-columns:repeat(2,1fr); gap:20px; }
+.proj-item { background:white; border:1px solid rgba(28,58,46,0.08); border-radius:14px; padding:30px 28px; box-shadow:0 2px 20px rgba(28,58,46,0.05); transition:transform 0.25s,box-shadow 0.3s,border-color 0.3s; }
+.proj-item:hover { transform:translateY(-4px); box-shadow:0 12px 36px rgba(28,58,46,0.1); border-color:rgba(201,168,76,0.35); }
+.proj-item-top { display:flex; align-items:flex-start; justify-content:space-between; gap:12px; margin-bottom:12px; }
+.proj-item-title { font-family:'Playfair Display',serif; font-size:1.08rem; font-weight:700; color:var(--forest); }
+.proj-item-badge { font-size:0.65rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; background:var(--cream-dark); color:var(--forest); border:1px solid rgba(28,58,46,0.15); padding:4px 10px; border-radius:20px; white-space:nowrap; flex-shrink:0; }
+.proj-item-badge.wip { background:rgba(201,168,76,0.12); color:var(--forest-mid); border-color:rgba(201,168,76,0.35); }
+.proj-item p { font-size:0.86rem; line-height:1.75; color:var(--text-light); margin-bottom:16px; }
+.proj-tags { display:flex; gap:7px; flex-wrap:wrap; }
+.proj-tag { font-size:0.7rem; font-weight:600; color:var(--forest-mid); background:var(--cream-dark); border:1px solid rgba(28,58,46,0.1); padding:4px 11px; border-radius:14px; }
+
+/* ACHIEVEMENT LIST */
+.achieve-list { display:flex; flex-direction:column; gap:16px; }
+.achieve-item { display:flex; gap:18px; align-items:flex-start; background:white; border:1px solid rgba(28,58,46,0.08); border-radius:12px; padding:22px 24px; box-shadow:0 2px 16px rgba(28,58,46,0.05); }
+.achieve-icon { font-size:1.6rem; flex-shrink:0; }
+.achieve-body { flex:1; }
+.achieve-title { font-family:'Playfair Display',serif; font-size:1rem; font-weight:700; color:var(--forest); margin-bottom:6px; }
+.achieve-desc { font-size:0.85rem; line-height:1.7; color:var(--text-light); }
+
+/* ORG LIST */
+.org-list { display:grid; grid-template-columns:repeat(2,1fr); gap:20px; }
+.org-item { background:white; border-radius:14px; padding:28px 26px; box-shadow:0 2px 20px rgba(28,58,46,0.05); border-left:4px solid var(--gold); }
+.org-role { font-size:0.7rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--gold); margin-bottom:8px; }
+.org-title { font-family:'Playfair Display',serif; font-size:1.05rem; font-weight:700; color:var(--forest); margin-bottom:8px; }
+.org-period { font-size:0.78rem; color:var(--text-light); margin-bottom:12px; }
+.org-desc { font-size:0.86rem; line-height:1.75; color:var(--text-mid); }
+
+/* BACK BTN */
+.back-wrap { margin-top:64px; }
+.btn-back { display:inline-flex; align-items:center; gap:9px; padding:12px 24px; background:var(--forest); color:var(--cream); border-radius:8px; font-weight:600; font-size:0.85rem; text-decoration:none; transition:transform 0.2s; }
+.btn-back:hover { transform:translateY(-2px); }
+
+.fade-in { opacity:0; transform:translateY(20px); transition:opacity 0.6s ease,transform 0.6s ease; }
+.fade-in.visible { opacity:1; transform:none; }
+.delay-1{transition-delay:0.1s} .delay-2{transition-delay:0.2s} .delay-3{transition-delay:0.3s}
+
+@media(max-width:700px){
+  .proj-list, .org-list { grid-template-columns:1fr; }
+  .page-header { padding:80px 20px 48px; }
+  .content-wrap { padding:52px 20px 64px; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <svg viewBox="0 0 40 40" fill="none">
+      <circle cx="20" cy="20" r="19" stroke="#C9A84C" stroke-width="1.2" opacity="0.4"/>
+      <path d="M13 16c0-4 2.5-7 7-7s7 3 7 7v8c0 3-2.5 6-7 6s-7-3-7-6v-8z" stroke="#C9A84C" stroke-width="1.3" fill="none"/>
+      <circle cx="16.5" cy="17" r="2.1" fill="#C9A84C"/>
+      <circle cx="23.5" cy="17" r="2.1" fill="#C9A84C"/>
+      <path d="M18.5 21.5l1.5 1.8 1.5-1.8" stroke="#C9A84C" stroke-width="1.1" fill="none" stroke-linecap="round"/>
+    </svg>
+    M. H. Panjaitan
+  </a>
+  <a href="index.html" class="nav-back">← Back to Portfolio</a>
+</nav>
+
+<div class="page-header">
+  <div class="page-header-inner fade-in">
+    <div class="eyebrow">Work &amp; Experience</div>
+    <h1>Projects &amp; <em>Experience</em></h1>
+    <p>Karya, pencapaian, dan pengalaman organisasi yang membentuk perjalanan saya hingga hari ini.</p>
+  </div>
+</div>
+
+<div class="content-wrap">
+
+  <!-- PROJECTS -->
+  <div id="projects">
+    <div class="section-label fade-in"><h2>Projects</h2></div>
+    <div class="proj-list">
+      <div class="proj-item fade-in">
+        <div class="proj-item-top">
+          <div class="proj-item-title">Website QA — Test Planning &amp; Bug Reporting</div>
+          <span class="proj-item-badge wip">In Progress</span>
+        </div>
+        <p>Proyek pengujian website sebagai Software Quality Assurance — mencakup pembuatan test case, skenario pengujian, bug report, dan dokumentasi proses QA lengkap.</p>
+        <div class="proj-tags">
+          <span class="proj-tag">Test Case</span>
+          <span class="proj-tag">Bug Tracking</span>
+          <span class="proj-tag">Manual Testing</span>
+          <span class="proj-tag">Test Documentation</span>
+        </div>
+      </div>
+      <div class="proj-item fade-in delay-1">
+        <div class="proj-item-top">
+          <div class="proj-item-title">Data Analysis — [Nama Project]</div>
+          <span class="proj-item-badge">Add Later</span>
+        </div>
+        <p>Deskripsi singkat project analisis data yang pernah dikerjakan. Update dengan judul, tools yang digunakan, dan hasil nyata yang dicapai.</p>
+        <div class="proj-tags">
+          <span class="proj-tag">Data Analysis</span>
+          <span class="proj-tag">Excel / Spreadsheet</span>
+        </div>
+      </div>
+      <div class="proj-item fade-in delay-2">
+        <div class="proj-item-top">
+          <div class="proj-item-title">Collaborative Project — [Nama Project]</div>
+          <span class="proj-item-badge">Add Later</span>
+        </div>
+        <p>Slot untuk proyek kolaboratif atau tugas kuliah yang relevan. Ceritakan peran Anda, kontribusi, dan apa yang dipelajari dari proyek tersebut.</p>
+        <div class="proj-tags">
+          <span class="proj-tag">Team Project</span>
+          <span class="proj-tag">Research</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ACHIEVEMENTS -->
+  <div id="achievements">
+    <div class="section-label fade-in"><h2>Achievements</h2></div>
+    <div class="achieve-list">
+      <div class="achieve-item fade-in">
+        <div class="achieve-icon">🌟</div>
+        <div class="achieve-body">
+          <div class="achieve-title">Tanoto Foundation — TELADAN Program</div>
+          <div class="achieve-desc">Peserta program kepemimpinan bergengsi dari Tanoto Foundation yang membangun karakter, kepemimpinan, dan kompetensi akademik secara holistik.</div>
+        </div>
+      </div>
+      <div class="achieve-item fade-in delay-1">
+        <div class="achieve-icon">🏆</div>
+        <div class="achieve-body">
+          <div class="achieve-title">[Tambahkan Pencapaian Lain]</div>
+          <div class="achieve-desc">Ceritakan pencapaian akademik, kompetisi, atau penghargaan yang pernah diraih. Sertakan nama institusi, tahun, dan konteks singkat.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ORG EXPERIENCE -->
+  <div id="org">
+    <div class="section-label fade-in"><h2>Organizational Experience</h2></div>
+    <div class="org-list">
+      <div class="org-item fade-in">
+        <div class="org-role">Himpunan Mahasiswa</div>
+        <div class="org-title">Divisi Pengawasan — HIMA</div>
+        <div class="org-period">2023 – 2024 · Universitas [Nama]</div>
+        <div class="org-desc">Berperan dalam pengawasan kegiatan organisasi, memastikan pelaksanaan program sesuai aturan dan standar yang berlaku. Mengasah ketelitian, tanggung jawab, dan kemampuan evaluasi.</div>
+      </div>
+      <div class="org-item fade-in delay-1">
+        <div class="org-role">Humas</div>
+        <div class="org-title">Hubungan Masyarakat — HIMA</div>
+        <div class="org-period">2023 – 2024 · Universitas [Nama]</div>
+        <div class="org-desc">Mengelola komunikasi antara organisasi dengan pihak internal dan eksternal. Meningkatkan kemampuan komunikasi, koordinasi tim, dan pengelolaan informasi secara profesional.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="back-wrap fade-in">
+    <a href="index.html" class="btn-back">← Back to Portfolio</a>
+  </div>
+
+</div>
+
+<footer style="background:#0D2219; padding:24px 6vw; text-align:center; color:#7A9E87; font-size:0.78rem;">
+  <p>Mega Hotmauli Panjaitan — <strong style="color:#C9A84C;font-weight:400;">Projects &amp; Experience</strong></p>
+</footer>
+
+<script>
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+}, { threshold: 0.07 });
+document.querySelectorAll('.fade-in').forEach(el => io.observe(el));
+// Scroll to section from hash
+if(window.location.hash) {
+  setTimeout(()=>{
+    const el = document.querySelector(window.location.hash);
+    if(el) el.scrollIntoView({ behavior:'smooth', block:'start' });
+  }, 300);
+}
+</script>
+</body>
+</html>
