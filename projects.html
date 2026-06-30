@@ -89,6 +89,28 @@ nav {
 .fade-in.visible { opacity:1; transform:none; }
 .delay-1{transition-delay:0.1s} .delay-2{transition-delay:0.2s} .delay-3{transition-delay:0.3s}
 
+.github-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    margin-top:20px;
+    padding:10px 18px;
+    border:1px solid rgba(201,168,76,.35);
+    border-radius:8px;
+    background:var(--forest);
+    color:var(--cream);
+    text-decoration:none;
+    font-size:.82rem;
+    font-weight:600;
+    transition:.3s ease;
+}
+
+.github-btn:hover{
+    background:var(--gold);
+    color:var(--forest);
+    transform:translateY(-2px);
+}
+
 @media(max-width:700px){
   .proj-list, .org-list { grid-template-columns:1fr; }
   .page-header { padding:80px 20px 48px; }
@@ -127,18 +149,42 @@ nav {
     <div class="section-label fade-in"><h2>Projects</h2></div>
     <div class="proj-list">
       <div class="proj-item fade-in">
-        <div class="proj-item-top">
-          <div class="proj-item-title">Website Testing — Test Planning &amp; Documentation</div>
-          <span class="proj-item-badge wip">In Progress</span>
+    <div class="proj-item-top">
+        <div class="proj-item-title">
+            Website Testing — Software Quality Assurance (SQA)
         </div>
-        <p>Proyek pengujian website yang mencakup pembuatan test case, skenario pengujian, dokumentasi bug, dan laporan proses pengujian secara lengkap.</p>
-        <div class="proj-tags">
-          <span class="proj-tag">Test Case</span>
-          <span class="proj-tag">Bug Tracking</span>
-          <span class="proj-tag">Manual Testing</span>
-          <span class="proj-tag">Documentation</span>
-        </div>
-      </div>
+        <span class="proj-item-badge wip">In Progress</span>
+    </div>
+
+    <p>
+        Berperan sebagai <strong>Software Quality Assurance (SQA)</strong>
+        dalam pengujian website dengan memastikan kualitas aplikasi melalui
+        penyusunan <strong>test plan</strong>, pembuatan
+        <strong>test case</strong>, pelaksanaan
+        <strong>manual testing</strong>, identifikasi dan pelaporan
+        <strong>bug</strong>, serta dokumentasi hasil pengujian.
+        Proyek ini mencerminkan kemampuan saya dalam
+        <strong>analytical thinking</strong>,
+        <strong>attention to detail</strong>, dan
+        <strong>problem solving</strong>, yang menjadi kekuatan utama dalam
+        portofolio ini.
+    </p>
+
+    <div class="proj-tags">
+        <span class="proj-tag">Software Quality Assurance</span>
+        <span class="proj-tag">Test Planning</span>
+        <span class="proj-tag">Test Case</span>
+        <span class="proj-tag">Manual Testing</span>
+        <span class="proj-tag">Bug Reporting</span>
+        <span class="proj-tag">Documentation</span>
+    </div>
+
+    <a href="https://github.com/lyahmdh/GitPerpustakaan"
+       target="_blank"
+       class="github-btn">
+        💻 View on GitHub
+    </a>
+</div>
       <div class="proj-item fade-in delay-1">
         <div class="proj-item-top">
           <div class="proj-item-title">Data Analysis — [Nama Project]</div>
